@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parfum Lux — Perfumes de Luz y Lujo</title>
+<meta name="description" content="Parfum Lux: perfumería de autor donde la luz (Lux) viste el perfume. Creaciones olfativas de lujo accesible.">
+<meta name="theme-color" content="#1A1D28">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=20261007-09">
+<link rel="icon" type="image/png" href="assets/Logo1.png">
+</head>
+<body>
+<header class="top" role="banner">
+  <a class="maison brand" href="#top" id="top"><img src="assets/Logo1.png" alt="Parfum Lux — logo LP" class="brand-logo" onerror="this.style.display='none'"><span>Parfum <b>Lux</b></span></a>
+  <nav class="nav" aria-label="Navegación principal">
+    <a href="#featured">Destacados</a>
+    <a href="#products">Colección</a>
+    <a href="#about">La Maison</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+  <div class="top-actions">
+    <a id="adminLink" class="btn btn-primary btn-sm" href="admin/index.html" hidden>Admin</a>
+    <button type="button" class="icon-btn" id="searchBtn" aria-label="Buscar" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+    <button type="button" class="icon-btn bagbtn" id="bagBtn" aria-label="Bolsa, 0 artículos">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l1 13H6z"/><path d="M9 8V6.5a2.5 2.5 0 0 1 5 0V8"/></svg>
+      <span class="badge" id="badge">0</span>
+    </button>
+    <button type="button" class="icon-btn" id="userBtn" aria-label="Mi cuenta"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Buscar perfumes">
+    <div class="search-bar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" id="searchInput" placeholder="Busca rosa, ámbar, Nuit…" autocomplete="off" aria-label="Buscar perfumes">
+      <button class="icon-btn" id="searchClose" aria-label="Cerrar búsqueda"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox" aria-label="Resultados"></div>
+  </div>
+</div>
+
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-visual" id="heroVisual">
+      <figure class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=900&auto=format&fit=crop" alt="Frasco de perfume Parfum Lux en luz dorada" loading="eager" fetchpriority="high">
+        <figcaption class="hero-badge"><span>Lumière · Eau de Parfum</span><strong>C$5,350</strong></figcaption>
+      </figure>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-chips" aria-hidden="true"><span class="chip c1">Extrait · Nuit Luxe</span><span class="chip c2">Masaya · C$ desde 2,510</span></div>
+      <div class="particles" id="particles" aria-hidden="true"></div>
+    </div>
+    <div class="hero-content">
+      <p class="eyebrow">Maison de Haute Parfumerie · Masaya, Nicaragua</p>
+      <h1 id="heroTitle" class="wordmark">Parfum <span>Lux</span></h1>
+      <p class="sub">Luz embotellada · Desde C$2,510</p>
+      <p class="lede">Donde la <em>luz</em> (Lux) se vuelve aroma. Seis creaciones que visten la piel con materiales nobles: rosa de Damasco, ámbar gris, sándalo cremoso, ambrette. Sin ruido, solo esencia.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn btn-primary">Descubrir la colección</a>
+        <a href="#featured" class="btn btn-ghost">Ver destacados</a>
+      </div>
+      <ul class="perks" aria-label="Beneficios">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Envío gratis +C$3,000</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>2 muestras en cada pedido</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/></svg>Pago contra entrega en Masaya</li>
+      </ul>
+      <div class="hero-stats" aria-label="La Maison en cifras">
+        <div><b>6</b><span>Creaciones</span></div>
+        <div><b>18%+</b><span>Concentración</span></div>
+        <div><b>100%</b><span>Vegano</span></div>
+      </div>
+      <span class="scroll-cue">Desliza</span>
+    </div>
+  </section>
+
+  <section class="strip" aria-hidden="true"><div class="strip-track"><span>Rosa de Damasco</span><i>·</i><span>Ámbar gris</span><i>·</i><span>Sándalo cremoso</span><i>·</i><span>Ambrette</span><i>·</i><span>Bergamota</span><i>·</i><span>Peonía</span><i>·</i><span>Vainilla</span><i>·</i><span>Luz embotellada</span><i>·</i><span>Rosa de Damasco</span><i>·</i><span>Ámbar gris</span><i>·</i><span>Sándalo cremoso</span><i>·</i><span>Ambrette</span><i>·</i><span>Bergamota</span><i>·</i><span>Peonía</span><i>·</i><span>Vainilla</span><i>·</i><span>Luz embotellada</span><i>·</i></div></section>
+
+  <section class="section" id="featured" aria-labelledby="featuredTitle">
+    <header class="shead">
+      <p class="cap">Selección</p>
+      <h2 id="featuredTitle">Nuestros <b>Destacados</b></h2>
+      <p class="intro">Tres perfumes que definen la identidad Parfum Lux: luz, noche y el tributo a la rosa.</p>
+    </header>
+    <div class="grid" id="featuredGrid" role="list"></div>
+  </section>
+
+  <section class="section" id="products" aria-labelledby="productsTitle">
+    <header class="shead">
+      <p class="cap">Catálogo</p>
+      <h2 id="productsTitle">Toda la <b>Colección</b></h2>
+      <p class="intro">Explora las seis fragancias fundacionales. Cada una cuenta una historia de luz y materia.</p>
+    </header>
+    <div class="toolbar">
+      <div class="filter-group">
+        <label for="familyFilter" class="sr">Familia olfativa</label>
+        <select id="familyFilter" aria-label="Filtrar por familia">
+          <option value="">Todas las familias</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="sortFilter" class="sr">Ordenar</label>
+        <select id="sortFilter" aria-label="Ordenar por">
+          <option value="featured">Destacados primero</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="name">Nombre A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid" id="productsGrid" role="list"></div>
+  </section>
+
+  <section class="section about" id="about" aria-labelledby="aboutTitle">
+    <div class="about-grid">
+      <div class="about-visual" aria-hidden="true">
+        <svg viewBox="0 0 300 300"><defs><radialGradient id="aura" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#6D7AA8" stop-opacity=".15"/><stop offset="100%" stop-color="#1A1D28" stop-opacity="0"/></radialGradient></defs><circle cx="150" cy="150" r="130" fill="url(#aura)"/><circle cx="150" cy="150" r="100" fill="none" stroke="#6D7AA8" stroke-opacity=".2" stroke-width="1" stroke-dasharray="8 12"/><circle cx="150" cy="150" r="60" fill="none" stroke="#29251B" stroke-opacity=".3" stroke-width="1"/></svg>
+      </div>
+      <div class="about-content">
+        <header class="shead" style="text-align:left;max-width:none;margin:0 0 32px">
+          <p class="cap">Filosofía</p>
+          <h2 id="aboutTitle">La <b>Maison</b> Parfum Lux</h2>
+        </header>
+        <p>Parfum Lux nace de una idea simple: el perfume como <em>luz vestida</em>. <strong>Parfum</strong> (perfume en francés), <strong>Lux</strong> (luz en latín, raíz de lujo). Cada fórmula busca ese instante donde la materia se vuelve luminosa.</p>
+        <p>Trabajamos con perfumistas independientes, materias primas trazadas y concentraciones altas (Eau de Parfum, Extrait). Sin marketing de celebridades, solo la verdad del jugo en el frasco.</p>
+        <div class="facts">
+          <div><b>6</b><span>Creaciones fundacionales</span></div>
+          <div><b>>=18%</b><span>Concentración media</span></div>
+          <div><b>100%</b><span>Vegano & Cruelty-free</span></div>
+          <div><b>Hecho en</b><span>España / Grasse</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contactTitle">
+    <header class="shead">
+      <p class="cap">Contacto</p>
+      <h2 id="contactTitle">Escríbenos</h2>
+      <p class="intro">¿Dudas sobre tu pedido, quieres asesoría olfativa o colaborar? Responderemos en <24h.</p>
+    </header>
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-row">
+        <label for="cName">Nombre</label>
+        <input type="text" id="cName" name="name" required autocomplete="name">
+      </div>
+      <div class="form-row">
+        <label for="cEmail">Email</label>
+        <input type="email" id="cEmail" name="email" required autocomplete="email">
+      </div>
+      <div class="form-row">
+        <label for="cSubject">Asunto</label>
+        <select id="cSubject" name="subject">
+          <option value="pedido">Mi pedido</option>
+          <option value="asesoria">Asesoría olfativa</option>
+          <option value="colab">Colaboraciones / Prensa</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="cMessage">Mensaje</label>
+        <textarea id="cMessage" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      <p class="form-note" id="formNote" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="maison brand" href="#top"><img src="assets/Logo2.png" alt="Parfum Lux" class="brand-logo" onerror="this.style.display='none'"><span>Parfum <b>Lux</b></span></a>
+      <p>Perfumería de autor — Luz, materia, silencio. Masaya, Nicaragua.</p>
+      <form class="newsletter" id="footNews" aria-label="Newsletter">
+        <input type="email" id="footNewsEmail" placeholder="tu@email.com" required aria-label="Email newsletter">
+        <button class="btn btn-primary btn-sm" type="submit">Unirme</button>
+      </form>
+      <p class="form-note small" id="footNewsMsg" aria-live="polite"></p>
+      <div class="social" aria-label="Redes sociales">
+        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 8.5V17"/><path d="M9.5 17A4.5 4.5 0 0 1 5 12.5v-7"/><path d="M14 8.5a6 6 0 0 1 1.5 5"/><path d="M17 5.5A9 9 0 0 1 22 10"/><path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg></a>
+        <a href="#!" data-info="newsletter" aria-label="Newsletter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces útiles">
+      <h4>Comprar</h4>
+      <ul><li><a href="#products">Colección</a></li><li><a href="#featured">Destacados</a></li><li><a href="#contact">Regalo & Grabado</a></li></ul>
+    </nav>
+    <nav class="footer-nav" aria-label="Soporte">
+      <h4>Soporte</h4>
+      <ul><li><a href="#contact">Contacto</a></li><li><a href="#!" data-info="faq">Preguntas frecuentes</a></li><li><a href="#!" data-info="shipping">Envíos & Devoluciones</a></li><li><a href="#!" data-info="account">Mi cuenta</a></li></ul>
+    </nav>
+    <nav class="footer-nav" aria-label="Legal">
+      <h4>Legal</h4>
+      <ul><li><a href="#!" data-info="legal">Aviso legal</a></li><li><a href="#!" data-info="privacy">Privacidad</a></li><li><a href="#!" data-info="terms">Condiciones</a></li><li><a href="#!" data-info="cookies">Cookies</a></li></ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Parfum Lux · Masaya, Nicaragua. Todos los derechos reservados.</p>
+    <p class="cap">Creado por <b>BennyDeveloper</b> · Parfum Lux</p>
+  </div>
+</footer>
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal-backdrop" tabindex="-1"></div>
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<div class="modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle" hidden>
+  <div class="modal-backdrop" data-close="infoModal"></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close="infoModal" aria-label="Cerrar"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-body" id="infoBody"></div>
+  </div>
+</div>
+
+<div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle" hidden>
+  <div class="modal-backdrop" data-close="authModal"></div>
+  <div class="modal-content auth-card">
+    <button class="modal-close" data-close="authModal" aria-label="Cerrar"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="auth-side">
+      <img src="assets/Logo1.png" alt="Parfum Lux" onerror="this.style.display='none'">
+      <h3 id="authTitle">Bienvenido a la Maison</h3>
+      <p>Tus pedidos, tu historial y tu perfil olfativo, en un solo lugar.</p>
+      <ul><li>Envío gratis desde C$3,000</li><li>2 muestras en cada pedido</li><li>Grabado gratuito 50/100 ml</li></ul>
+    </div>
+    <div class="modal-body auth-body">
+      <div class="tabs" id="authTabs" role="tablist">
+        <button id="tabLogin" class="tab active" role="tab">Entrar</button>
+        <button id="tabRegister" class="tab" role="tab">Crear cuenta</button>
+      </div>
+      <div class="form-grid" id="authForm">
+        <label id="nameRow" style="display:none">Nombre<input id="authName" autocomplete="name" placeholder="Tu nombre"></label>
+        <label>Email<input id="authEmail" type="email" autocomplete="email" placeholder="tu@email.com"></label>
+        <label>Contraseña<span class="pass-wrap"><input id="authPass" type="password" autocomplete="current-password" placeholder="Mínimo 6 caracteres"><button type="button" id="passToggle" aria-label="Mostrar contraseña">Ver</button></span></label>
+        <button class="btn btn-primary" id="authSubmit">Entrar</button>
+        <p class="form-note" id="authMsg" aria-live="polite"></p>
+      </div>
+      <div id="profileBox" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/app.js?v=20261007-09"></script>
+</body>
+</html>

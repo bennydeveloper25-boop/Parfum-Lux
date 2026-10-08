@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+output/
+tmp/
+backend/storage/logs/*
+backend/storage/rate/*
+!backend/storage/logs/.gitkeep
+!backend/storage/rate/.gitkeep

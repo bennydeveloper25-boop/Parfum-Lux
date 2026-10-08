@@ -1,0 +1,19 @@
+# Copia de seguridad del original
+
+El archivo original `082-perfume-rosee.html` permanece **intacto** en:
+`C:\Users\Famil\Documents\Proyectos desarrollos\Webs\Vanilla\HTML PRINCIPAL\082-perfume-rosee.html`
+
+Este frontend `parfum-lux/frontend/index.html` es una **nueva creación** basada en la estructura y animaciones del original, pero con:
+
+- Marca: **Parfum Lux** (Parfum = perfume en francés, Lux = luz/lujo en latín)
+- Paleta oficial:
+  - `--nuit`  #1A1D28 (noche profunda)
+  - `--terre` #29251B (tierra/dorado oscuro)
+  - `--gris`  #5E6069 (gris neutro)
+  - `--sable` #7E7867 (arena/oliva)
+  - `--lavande` #6D7AA8 (lavanda/azul luz)
+- Fuentes: `Cormorant Garamond` (display) + `Jost` (UI)
+- Arquitectura: Vanilla JS (ES modules) + CSS custom properties
+- Conexión API: `http://localhost:8000/api` (backend PHP)
+
+No se ha modificado ni sobrescrito el archivo original en ningún momento.

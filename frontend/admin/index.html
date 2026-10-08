@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parfum Lux — Panel Administrativo</title>
+<meta name="theme-color" content="#1A1D28">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css?v=20261007-01">
+<link rel="icon" type="image/png" href="../assets/Logo1.png">
+</head>
+<body>
+<div id="loginView" class="login-wrap">
+  <form id="loginForm" class="login-card" autocomplete="off">
+    <img src="../assets/Logo1.png" alt="Parfum Lux" class="login-logo" onerror="this.style.display='none'">
+    <h1>Parfum Lux <span>Admin</span></h1>
+    <p class="muted">Acceso restringido · rol admin</p>
+    <label>Email<input type="email" id="loginEmail" value="admin@parfumlux.com" required></label>
+    <label>Contraseña<input type="password" id="loginPass" value="Admin123*" required></label>
+    <button class="btn primary" type="submit">Entrar</button>
+    <p class="muted small">API: <code id="apiLabel"></code></p>
+    <p class="err" id="loginErr"></p>
+  </form>
+</div>
+
+<div id="app" class="page" hidden>
+  <aside class="sidebar" id="sidebar">
+    <div class="side-brand">
+      <img src="../assets/Logo1.png" alt="PL" onerror="this.style.display='none'">
+      <div><strong>Parfum Lux</strong><small>Masaya · Admin</small></div>
+    </div>
+    <nav class="side-nav" id="sideNav">
+      <button data-view="dashboard" class="active"><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3zM13 21h8v-8h-8zM13 3v6h8V3zM3 21h8v-6H3z"/></svg>Dashboard</button>
+      <button data-view="products"><svg viewBox="0 0 24 24"><path d="M6 7h12l1 14H5zM9 7V5a3 3 0 0 1 6 0v2"/></svg>Productos</button>
+      <button data-view="orders"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12zM6 6 5 3H2M9 20a1 1 0 1 0 0 .01M18 20a1 1 0 1 0 0 .01"/></svg>Pedidos</button>
+      <button data-view="reviews"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7L12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7z"/></svg>Reseñas</button>
+      <button data-view="contacts"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4zM4 6l8 6 8-6"/></svg>Mensajes <b id="navMsgCount" class="pill" hidden>0</b></button>
+      <button data-view="faqs"><svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8h4a4 4 0 1 1 4 4v4M12 22v.01"/></svg>FAQs</button>
+      <button data-view="families"><svg viewBox="0 0 24 24"><path d="M12 3c-5 4-8 7-8 11a8 8 0 0 0 16 0c0-4-3-7-8-11z"/></svg>Familias</button>
+      <button data-view="users"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4M2 21v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1M22 11a4 4 0 0 1-4 4"/></svg>Usuarios</button>
+    </nav>
+    <div class="side-foot">
+      <button id="viewShopBtn" class="btn ghost sm">Ver tienda</button>
+      <button id="logoutBtn" class="btn danger sm">Salir</button>
+      <p class="muted small">Creado por <b>BennyDeveloper</b></p>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button id="menuBtn" class="icon-btn" aria-label="Menú"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+      <div class="crumbs"><span>Maison</span> / <strong id="crumb">Dashboard</strong></div>
+      <div class="top-actions">
+        <span id="adminUser" class="muted"></span>
+        <button id="refreshBtn" class="btn sm">Actualizar</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section id="view-dashboard" class="view">
+        <div class="cards" id="statCards"></div>
+        <div class="grid2">
+          <div class="panel"><h3>Ventas últimos 7 días (C$)</h3><canvas id="chartSales" height="180"></canvas></div>
+          <div class="panel"><h3>Stock bajo (&lt;15)</h3><div id="lowStock"></div></div>
+        </div>
+        <div class="panel"><h3>Pedidos recientes</h3><div class="table-wrap"><table id="recentTable"><thead><tr><th>#</th><th>Fecha</th><th>Total</th><th>Estado</th><th>Líneas</th></tr></thead><tbody></tbody></table></div></div>
+      </section>
+
+      <section id="view-products" class="view" hidden>
+        <div class="row-between"><h2>Productos</h2><button id="newProductBtn" class="btn primary sm">Nuevo producto</button></div>
+        <div class="table-wrap"><table id="productsTable"><thead><tr><th></th><th>SKU</th><th>Nombre</th><th>Familia</th><th>Base C$</th><th>Dest.</th><th>Acciones</th></tr></thead><tbody></tbody></table></div>
+      </section>
+
+      <section id="view-orders" class="view" hidden>
+        <div class="row-between"><h2>Pedidos</h2><select id="orderStatusFilter"><option value="">Todos</option><option>pending</option><option>paid</option><option>preparing</option><option>shipped</option><option>delivered</option><option>cancelled</option></select></div>
+        <div class="table-wrap"><table id="ordersTable"><thead><tr><th>#</th><th>Fecha</th><th>Total</th><th>Estado</th><th>Acciones</th></tr></thead><tbody></tbody></table></div>
+        <div id="orderDetail" class="panel" hidden></div>
+      </section>
+
+      <section id="view-reviews" class="view" hidden><h2>Reseñas</h2><div class="table-wrap"><table id="reviewsTable"><thead><tr><th>Producto</th><th>Autor</th><th>★</th><th>Título</th><th>Visible</th><th></th></tr></thead><tbody></tbody></table></div></section>
+
+      <section id="view-contacts" class="view" hidden><h2>Mensajes</h2><div class="table-wrap"><table id="contactsTable"><thead><tr><th>Fecha</th><th>Nombre</th><th>Email</th><th>Asunto</th><th>Leído</th><th></th></tr></thead><tbody></tbody></table></div></section>
+
+      <section id="view-faqs" class="view" hidden><h2>Preguntas frecuentes</h2><div id="faqsList" class="list"></div></section>
+
+      <section id="view-families" class="view" hidden><h2>Familias olfativas</h2><div id="familiesList" class="list"></div></section>
+
+      <section id="view-users" class="view" hidden><h2>Usuarios</h2><div class="table-wrap"><table id="usersTable"><thead><tr><th>Nombre</th><th>Email</th><th>Rol</th><th>Activo</th><th>Alta</th></tr></thead><tbody></tbody></table></div></section>
+    </main>
+
+    <footer class="admin-foot">© 2026 Parfum Lux · Masaya, Nicaragua · Creado por <b>BennyDeveloper</b></footer>
+  </div>
+</div>
+
+<div id="modal" class="modal" hidden><div class="modal-card"><div class="row-between"><h3 id="modalTitle"></h3><button id="modalClose" class="icon-btn">✕</button></div><div id="modalBody"></div></div></div>
+<div id="toasts"></div>
+<script type="module" src="js/admin.js?v=20261007-02"></script>
+</body>
+</html>
